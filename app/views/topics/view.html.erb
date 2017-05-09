@@ -1,0 +1,81 @@
+<style>
+	.headerRow{
+		text-align: center;
+	}
+	#messages{
+		border: 1px solid #ccc;
+		padding: 2%;
+		height: 550px;
+    	overflow: auto;
+    	word-break:break-all;
+	}
+	.inputRow{
+		border: 1px solid #ccc;
+        /*padding: 2% 0%;*/
+	}
+	.chatBoxForm{
+		margin-top: 2%;
+	}
+	.chatBoxForm input{
+		border: none;
+	}
+	.sendButton{
+		float: right;
+	}
+	.textCol{
+		padding: 0px;
+	}
+	.btn-danger{
+		float: right;
+	}
+</style>
+<div class="container">
+	<div class="row">
+			<form action="/topics/destroy" method="POST" data-remote="true" class="chatBoxForm">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input type="hidden" name="topic_id" value="<%= @topic.id %>">
+				<button class="btn btn-danger" data-confirm="End Conversation?">X</button>
+			</form>
+	</div>
+	<div class="row headerRow">
+		<h3><%= @topic.name %></h3>
+	</div>
+	<div class="row chatRoom">
+		<div class="col-sm-2">
+		</div>
+		<div id="messages" class="col-sm-8">
+		<p>Your request has been recieved, someone will be with you shortly</p>
+			<% @topic.messages.each do |val| %>
+				<p><b><%= val.user.user_name %>:</b> <%= val.content %></p>
+			<% end %>
+		</div>
+		<div class="col-sm-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2">
+		</div>
+		<div class="col-sm-8">
+				<form action="/messages/create" method="POST" data-remote="true" class="chatBoxForm">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" name="message[user_id]" value="<%= session[:user_id] %>">
+					<input type="hidden" name="message[topic_id]" value="<%= @topic.id %>">
+					<div class="row inputRow">
+						<div class="col-sm-12 textCol">
+							<input class="form-control" id="chatBox" type="text" name="message[content]" placeholder="Type a message..">
+						</div>
+<!-- 						<div class="col-sm-1 sendButton">
+							<button class="btn btn-primary">Send</button>
+						</div> -->
+					</div>
+				</form>
+		</div>
+		<div class="col-sm-2">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$( document ).on('turbolinks:load', function() {
+		$("#messages").scrollTop($("#messages")[0].scrollHeight);
+	})
+</script>

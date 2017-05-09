@@ -1,0 +1,17 @@
+<h3>Registration</h3>
+<form action="/users/create" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	User Name: <input type="text" name="user[user_name]">
+	Password: <input type="password" name="user[password]">
+	<input type="submit" value="submit">
+</form>
+<h3>Login</h3>
+<form action="/sessions/create" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	User Name: <input type="text" name="user_name">
+	Password: <input type="password" name="password">
+	<input type="submit" value="submit">
+</form>
+<% if flash[:error] %>
+	<h4><%= flash[:error] %></h4>
+<% end %>
