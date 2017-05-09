@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
 	def create
 		@topic = Topic.new(topic_params)
 		if @topic.save
+			# broadcast_topic
 			redirect_to "/topics/#{@topic.id}"
 		end
 	end
@@ -15,4 +16,6 @@ class TopicsController < ApplicationController
 		Topic.destroy(params['topic_id'])
 		redirect_to '/chatroom'
 	end
+	# def broadcast_topic
+	# end
 end
