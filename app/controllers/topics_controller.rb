@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
 		end
 	end
 	def view
+		@user = User.find(session[:user_id])
 		@topic = Topic.find(params[:id])
 	end
 	def topic_params
@@ -14,7 +15,7 @@ class TopicsController < ApplicationController
 	end
 	def destroy
 		Topic.destroy(params['topic_id'])
-		redirect_to '/chatroom'
+		redirect_to '/chatroom_admin'
 	end
 	# def broadcast_topic
 	# end

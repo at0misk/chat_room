@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
 		@user = User.find(session[:user_id])
 		@topics = Topic.all
 	end
+	def chatroom_admin
+		@user = User.find(session[:user_id])
+		@topics = Topic.all
+	end
 	def create
 		@user = User.find_by(user_name: params['user_name'])
 		if @user

@@ -2,7 +2,7 @@
 	.headerRow{
 		text-align: center;
 	}
-	#messages{
+	.messageBox{
 		border: 1px solid #ccc;
 		padding: 2%;
 		height: 550px;
@@ -30,20 +30,22 @@
 	}
 </style>
 <div class="container">
-	<div class="row">
-			<form action="/topics/destroy" method="POST" data-remote="true" class="chatBoxForm">
-				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-				<input type="hidden" name="topic_id" value="<%= @topic.id %>">
-				<button class="btn btn-danger" data-confirm="End Conversation?">X</button>
-			</form>
-	</div>
+	<% if @user.user_name == 'admin' %>
+		<div class="row">
+				<form action="/topics/destroy" method="POST" data-remote="true" class="chatBoxForm">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" name="topic_id" value="<%= @topic.id %>">
+					<button class="btn btn-danger" data-confirm="End Conversation?">X</button>
+				</form>
+		</div>
+	<% end %>
 	<div class="row headerRow">
 		<h3><%= @topic.name %></h3>
 	</div>
 	<div class="row chatRoom">
 		<div class="col-sm-2">
 		</div>
-		<div id="messages" class="col-sm-8">
+		<div id="messages<%= @topic.id %>" class="col-sm-8 messageBox">
 		<p>Your request has been recieved, someone will be with you shortly</p>
 			<% @topic.messages.each do |val| %>
 				<p><b><%= val.user.user_name %>:</b> <%= val.content %></p>
@@ -76,6 +78,6 @@
 </div>
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
-		$("#messages").scrollTop($("#messages")[0].scrollHeight);
+		$("#messages<%= @topic.id %>").scrollTop($("#messages<%= @topic.id %>")[0].scrollHeight);
 	})
 </script>

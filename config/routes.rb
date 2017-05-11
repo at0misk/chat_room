@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 	post '/topics/destroy' => 'topics#destroy'
  	mount ActionCable.server => '/cable'
  	get '/logout' => 'sessions#logout'
+ 	get '/chatroom_admin' => 'sessions#chatroom_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
