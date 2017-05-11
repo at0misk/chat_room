@@ -4,7 +4,7 @@ App.topics = App.cable.subscriptions.create('TopicsChannel', {
   },
 
   renderTopic: function(data) {
-    return "<h3><a href='/topics/" + data.id + "'>" + data.name + "</a></h3>";
+    return  "<tr><td><a href='/topics/" + data.id + "'>" + data.name + '</a></td><td>' + data.user + '</td><td>' + data.time + '</td></tr>';
   }
 
 });

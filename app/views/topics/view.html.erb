@@ -64,7 +64,7 @@
 					<input type="hidden" name="message[topic_id]" value="<%= @topic.id %>">
 					<div class="row inputRow">
 						<div class="col-sm-12 textCol">
-							<input class="form-control" id="chatBox" type="text" name="message[content]" placeholder="Type a message..">
+							<input class="form-control" id="chatBox<%= @user.id %>" type="text" name="message[content]" placeholder="Type a message..">
 						</div>
 <!-- 						<div class="col-sm-1 sendButton">
 							<button class="btn btn-primary">Send</button>

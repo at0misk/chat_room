@@ -8,7 +8,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
   },
 
   renderMessage: function(data) {
-  	$('#chatBox').val('');
+  	$('#chatBox' + data.user_id).val('');
 		$('#messages' + data.topic_id).stop().animate({
 		  scrollTop: $('#messages' + data.topic_id)[0].scrollHeight
 		}, 800);
