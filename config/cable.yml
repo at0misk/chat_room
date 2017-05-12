@@ -6,3 +6,4 @@ test:
 
 production:
   adapter: async
+  url: http://35.167.229.106
