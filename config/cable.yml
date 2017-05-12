@@ -1,9 +1,9 @@
 development:
-  adapter: sqlite3
+  adapter: async
 
 test:
-  adapter: sqlite3
+  adapter: async
 
 production:
-  adapter: sqlite3
+  adapter: redis
   url: redis://localhost:6379/1
