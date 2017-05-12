@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
 	def all
+		@user = User.find(session[:user_id])
 		@categories = Category.all
+			if !@user.permod
+				redirect_to '/'
+			end
 	end
 	def new
 	end

@@ -22,6 +22,19 @@
 	.topicRow{
 		margin-top: 50px;
 	}
+	@media (max-width: 768px){
+	  .topicBox{
+	    display: inline-block;
+	    width: 45%;
+	    margin-top: 10%;
+	  }
+	  .topicRow{
+	  	margin-top: 0px;
+	  }
+	  .topicHeader{
+	  	margin-top: 20%;
+	  }
+	}
 </style>
 <% if session[:user_id] %>
 	<div class="row">
