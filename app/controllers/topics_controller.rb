@@ -9,6 +9,13 @@ class TopicsController < ApplicationController
 	def view
 		@user = User.find(session[:user_id])
 		@topic = Topic.find(params[:id])
+		if @user.permod
+			ActionCable.server.broadcast 'messages',
+	        message: "A customer service representitive has joined the channel",
+	        user: "System",
+	        topic_id: @topic.id,
+	        user_id: @user.id
+		end
 	end
 	def topic_params
 		params.require(:topic).permit(:name, :user_id)

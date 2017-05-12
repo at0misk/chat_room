@@ -1,16 +1,36 @@
+<style type="text/css">
+	.header{
+		text-align: center;
+	}
+	.formButtons{
+		text-align: center;
+		margin-top: 2%;
+	}
+</style>
 <div class="row">
 	<div class="col-md-3">
 	</div>
 	<div class="col-md-6">
-		<h2>Welcome <%= @user.user_name %></h2>
-		<h3>Request Help (Topic):</h3>
+		<h2 class="header">Welcome <%= @user.user_name %></h2>
+		<h4 class="header">What do you need help with?</h4>
 		<form action="/topics/create" method="POST" data-remote="true">
 			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-			<input type="text" name="topic[name]">
 			<input type="hidden" name="topic[user_id]" value="<%= session[:user_id] %>">
-			<input type="submit" value="submit">
+				<div class="form-group">
+				    <label for="email" class="col-sm-3 control-label">
+				        </label>
+				    <div class="col-sm-6">
+				        <input type="text" name="topic[name]" class="form-control" id="topicName" />
+				    </div>
+				</div>
+			<div class="row btnRow">
+			    <div class="col-sm-12 formButtons">
+			        <button type="submit" class="btn btn-primary">
+			            Request Chat</button>
+			        <!-- <a href="javascript:;">Forgot your password?</a> -->
+			    </div>
+			</div>
 		</form>
-		<a href="/logout">Logout</a>
 	</div>
 	<div class="col-md-3">
 	</div>

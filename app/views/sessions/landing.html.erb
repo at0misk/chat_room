@@ -1,17 +1,109 @@
-<h3>Registration</h3>
-<form action="/users/create" method="POST">
-	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-	User Name: <input type="text" name="user[user_name]">
-	Password: <input type="password" name="user[password]">
-	<input type="submit" value="submit">
-</form>
-<h3>Login</h3>
-<form action="/sessions/create" method="POST">
-	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-	User Name: <input type="text" name="user_name">
-	Password: <input type="password" name="password">
-	<input type="submit" value="submit">
-</form>
-<% if flash[:error] %>
-	<h4><%= flash[:error] %></h4>
+<style type="text/css">
+	.formHeader{
+		text-align: center;
+	}
+	.formButtons{
+		text-align: center;
+	}
+	.header{
+		text-align: center;
+		margin-top: 50px;
+	}
+	.topicBox{
+		text-align: center;
+		border: 1px solid black;
+		height: 200px;
+		width: 20%;
+		margin: 0px 2%;
+	}
+	.topicHeader{
+		margin-top: 40%;
+	}
+	.topicRow{
+		margin-top: 50px;
+	}
+</style>
+<% if session[:user_id] %>
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="header">Explore Vacations</h1>
+		</div>
+	</div>
+	<% x = 0 %>
+	<div class="row topicRow">
+	<% @categories.each do |val| %>
+			<div class="col-sm-3 topicBox">
+				<h3 class="topicHeader"><a href ="/categories/<%= val.id %>"><%= val.name %></a></h3>
+			</div>
+			<% if x == 3 %>
+				</div>
+				<div class="row topicRow">
+			<% elsif x == @categories.length - 1 %>
+				</div>
+				<div class="row topicRow">
+			<% end %>
+		<% x += 1 %>
+	<% end %>
+<% else %>
+	<div class="col-md-6">
+		<h3 class="formHeader">Registration</h3>
+			<form class="form-horizontal" action="/users/create" method="POST">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<div class="form-group">
+				    <label for="email" class="col-sm-3 control-label">
+				        User Name:</label>
+				    <div class="col-sm-6">
+				        <input type="text" name="user[user_name]" class="form-control" id="userName" placeholder="User Name" />
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="password" class="col-sm-3 control-label">
+				        Password</label>
+				    <div class="col-sm-6">
+				        <input type="password" name="user[password]" class="form-control" id="passwordLog" placeholder="Password" />
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="col-sm-3">
+				    </div>
+				    <div class="col-sm-6 formButtons">
+				        <button type="submit" class="btn btn-primary btn-sm">
+				            Login</button>
+				        <!-- <a href="javascript:;">Forgot your password?</a> -->
+				    </div>
+				</div>
+			</form>
+	</div>
+	<div class="col-md-6">
+	<h3 class="formHeader">Login</h3>
+		<form class="form-horizontal" action="/sessions/create" method="POST">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<div class="form-group">
+			    <label for="email" class="col-sm-3 control-label">
+			        User Name:</label>
+			    <div class="col-sm-6">
+			        <input type="text" name="user_name" class="form-control" id="userName" placeholder="User Name" />
+			    </div>
+			</div>
+			<div class="form-group">
+			    <label for="password" class="col-sm-3 control-label">
+			        Password</label>
+			    <div class="col-sm-6">
+			        <input type="password" name="password" class="form-control" id="passwordLog" placeholder="Password" />
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col-sm-3">
+			    </div>
+			    <div class="col-sm-6 formButtons">
+			        <button type="submit" class="btn btn-primary btn-sm">
+			            Login</button>
+			        <!-- <a href="javascript:;">Forgot your password?</a> -->
+			    </div>
+			</div>
+		</form>
+	</div>
+	<% if flash[:error] %>
+		<h4><%= flash[:error] %></h4>
+	<% end %>
 <% end %>

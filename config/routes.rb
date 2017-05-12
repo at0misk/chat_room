@@ -10,5 +10,12 @@ Rails.application.routes.draw do
  	mount ActionCable.server => '/cable'
  	get '/logout' => 'sessions#logout'
  	get '/chatroom_admin' => 'sessions#chatroom_admin'
+ 	get '/about' => 'sessions#about'
+ 	get '/contact' => 'sessions#contact'
+ 	get '/categories' => 'categories#all'
+ 	get '/categories/new' => 'categories#new'
+ 	post '/category/create' => 'categories#create'
+ 	get '/categories/:id' => 'categories#view'
+ 	post '/categories/destroy' => 'categories#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

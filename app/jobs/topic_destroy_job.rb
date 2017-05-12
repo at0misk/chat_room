@@ -1,7 +1,7 @@
 class TopicDestroyJob < ApplicationJob
   def perform(topic)
 	ActionCable.server.broadcast 'messages',
-    message: "Your conversation has ended.  Click <a href='/chatroom'>here</a> to go back.",
+    message: "Thank you, your conversation has ended.  If you need further support, click <a href='/chatroom'>here</a> to submit another ticket.",
     user: "System",
     topic_id: topic.id
   end

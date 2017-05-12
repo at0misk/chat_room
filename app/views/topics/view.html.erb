@@ -30,7 +30,7 @@
 	}
 </style>
 <div class="container">
-	<% if @user.user_name == 'admin' %>
+	<% if @user.permod %>
 		<div class="row">
 				<form action="/topics/destroy" method="POST" data-remote="true" class="chatBoxForm">
 					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
