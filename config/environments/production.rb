@@ -3,7 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.action_cable.url = "ws://35.167.229.106/:2000cable"
+  config.action_cable.url = "ws://35.167.229.106/:3000cable"
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
