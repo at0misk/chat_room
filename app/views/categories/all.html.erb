@@ -3,7 +3,7 @@
 		text-align: center;
 	}
 	.btn-danger{
-		margin-left: 40%;
+		/*margin-left: 40%;*/
 		vertical-align: bottom;
 	}
 	.nameHeader{
@@ -12,19 +12,47 @@
 	.destroyForm{
 		display: inline-block;
 		vertical-align: top;
+		float: right;
+	}
+	.formContDiv{
+		width: 60%;
+		margin-top: 10%;
+		border: 1px solid grey;
+	}
+	.topicBox{
+		text-align: center;
+		border: 1px solid grey;
+		height: 200px;
+		width: 20%;
+		margin: 0px 2%;
+		padding: 0px;
+	}
+	.topicHeader{
+		margin-top: 35%;
+	}
+	.topicRow{
+		margin-top: 50px;
 	}
 </style>
-<h2 class="header">Categories</h2>
-<h4 class="header"><a href="/categories/new">Add Category</a></h4>
-<div class="row">
+<h1 class="header">Categories</h1>
+<h3 class="header"><a href="/categories/new">Add Category</a></h3>
+	<% x = 0 %>
+	<div class="row topicRow">
 	<% @categories.each do |val| %>
-		<div class="col-sm-3">
-		<h3 class="nameHeader"><a href="/categories/destroy/<%= val.id %>"><%= val.name %></a></h3>
-				<form action="/categories/destroy" method="POST" data-remote="true" class="destroyForm">
-					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-					<input type="hidden" name="id" value="<%= val.id %>">
-					<button class="btn btn-xs btn-danger" data-confirm="Destroy Category?">X</button>
-				</form>
-		</div>
+			<div class="col-sm-3 topicBox">
+					<form action="/categories/destroy" method="POST" data-remote="true" class="destroyForm">
+						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+						<input type="hidden" name="id" value="<%= val.id %>">
+						<button class="btn btn-xs btn-danger" data-confirm="Destroy Category?">X</button>
+					</form>
+				<h3 class="topicHeader"><a href ="/categories/<%= val.id %>"><%= val.name %></a></h3>
+			</div>
+			<% if x == 3 %>
+				</div>
+				<div class="row topicRow">
+			<% elsif x == @categories.length - 1 %>
+				</div>
+				<div class="row topicRow">
+			<% end %>
+		<% x += 1 %>
 	<% end %>
-</div>
