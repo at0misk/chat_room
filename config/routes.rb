@@ -17,5 +17,7 @@ Rails.application.routes.draw do
  	post '/category/create' => 'categories#create'
  	get '/categories/:id' => 'categories#view'
  	post '/categories/destroy' => 'categories#destroy'
+ 	get '/users/edit' => 'users#edit'
+ 	patch '/users/edit' => 'users#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
