@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			@user.update_attribute(:permod, false)
-			redirect_to '/chatroom'
+			redirect_to '/'
 		end
 	end
 	def edit
