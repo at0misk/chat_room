@@ -6,6 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
   config.action_cable.url = "ws://35.167.229.106:3000/cable"
+  ActionCable.server.config.disable_request_forgery_protection = true
   # Do not eager load code on boot.
   config.eager_load = false
 
