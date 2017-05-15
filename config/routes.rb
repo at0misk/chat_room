@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	get '/topics/:id' => 'topics#view'
 	post '/messages/create' => 'messages#create'
 	post '/topics/destroy' => 'topics#destroy'
- 	# mount ActionCable.server => '/cable'
+ 	mount ActionCable.server => '/cable'
  	get '/logout' => 'sessions#logout'
  	get '/chatroom_admin' => 'sessions#chatroom_admin'
  	get '/about' => 'sessions#about'
