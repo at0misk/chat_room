@@ -4,8 +4,4 @@
 
 this.App = {};
 
-websocket_uri = ->
-  prot = if location.protocol == 'https:' then 'wss:' else 'ws:'
-  "#{prot}//#{location.host}/_c/"
-
-App.cable = Cable.createConsumer(websocket_uri())
+App.cable = ActionCable.createConsumer();  
