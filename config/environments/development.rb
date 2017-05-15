@@ -8,6 +8,7 @@ Rails.application.configure do
   # config.action_cable.url = "ws://35.163.87.222:3000/cable"
   config.action_cable.allowed_request_origins = ['http://35.163.87.222']
   ActionCable.server.config.disable_request_forgery_protection = true
+  config.force_ssl = false
   # Do not eager load code on boot.
   config.eager_load = false
 
