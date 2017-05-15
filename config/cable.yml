@@ -3,8 +3,9 @@ development:
   url: sqlite3:35.163.87.222:3000
 
 test:
-  adapter: async
+  adapter: sqlite3
+  url: sqlite3:35.163.87.222:3000
 
 production:
-  adapter: redis
-  url: redis://localhost:6379/1
+  adapter: sqlite3
+  url: sqlite3:35.163.87.222:3000
