@@ -3,7 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.action_cable.url = "ws://35.163.87.222:3000/cable"
+  config.action_cable.url = "ws://35.163.87.222:3000/PRODUCTION"
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
   ActionCable.server.config.disable_request_forgery_protection = true
   # Eager load code on boot. This eager loads most of Rails and
