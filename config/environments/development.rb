@@ -6,11 +6,12 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
   config.action_cable.url = "ws://35.163.87.222:3000/cable"
+  config.action_cable.allowed_request_origins = ["http://35.163.87.222"]
   # Do not eager load code on boot.
   config.eager_load = false
 
   # Show full error reports.
-  # config.consider_all_requests_local = true
+  config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
