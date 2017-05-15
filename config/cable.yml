@@ -1,5 +1,6 @@
 development:
-  adapter: async
+  adapter: sqlite3
+  url: http://35.163.87.222
 
 test:
   adapter: async
