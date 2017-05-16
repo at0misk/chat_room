@@ -17,5 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 
+/public/videos/*
+
 # Ignore Byebug command history file.
 .byebug_history
