@@ -13,13 +13,9 @@ class VideosController < ApplicationController
 		v.category_id = params[:category]
 		v.description = params[:description]
 		if v.save!
-			puts "a"
-			puts "=========================================================="
-			puts params[:file]
-			puts v.vfile
-			puts v.vfile.file.nil?
+
 		else
-			fail
+			flash[:errors] = "Record saved, but file wasn't uploaded."
 		end
 			redirect_to :back
 	end
