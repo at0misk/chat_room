@@ -1,5 +1,5 @@
 development:
-  url: redis://localhost:6379
+  adapter: sqlite3
 
 test:
   adapter: async
