@@ -1,1 +1,31 @@
-<h1>View</h1>
+<h1><%= @category.name %></h1>
+<% x = 0 %>
+	<% @videos.each do |val| %>
+	  <div class="row topRow">
+		  <div class="col-md-7">
+		  	<div class="embed-responsive embed-responsive-4by3">
+		  		<% if x == 0 %>
+				  <video id="my-video" autoplay class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
+				<% else %>
+					<video id="my-video" class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
+				<% end %>
+				    <source src="<%= val.vfile.url %>" type='video/mp4'>
+				    <source src="/<%= val.vfile.url %>" type='video/webm'>
+				    <p class="vjs-no-js">
+				      To view this video please enable JavaScript, and consider upgrading to a web browser that
+				      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+				    </p>
+				  </video>
+			  </div>
+		  </div>
+		  <div class="col-md-5">
+			  <div class="row middleRow">
+			  	<h1><%= val.name %></h1>
+			  </div>
+			  <div class="row middleText">
+					<p><%= val.description %></p>
+			  </div>
+		  </div>
+	  </div>
+	  <% x += 1 %>
+	<% end %>

@@ -3,7 +3,8 @@ class VideosController < ApplicationController
 		@categories = Category.all
 	end
 	def categories_view
-		# @videos = 
+		@category = Category.find(params['id'])
+		@videos = Video.where(category_id: params['id'])
 	end
 	def create
 		v = Video.new
