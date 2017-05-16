@@ -13,6 +13,7 @@ class VideosController < ApplicationController
 		v.category_id = params[:category]
 		v.description = params[:description]
 		if v.save!
+			puts "a"
 			puts "=========================================================="
 			puts params[:file]
 			puts v.vfile
