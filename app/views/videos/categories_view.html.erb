@@ -29,7 +29,7 @@
 <h1><%= @category.name %></h1>
 <% x = 0 %>
 	<% @videos.each do |val| %>
-	<% @path = val.vfile.url[24..-1] %>
+	<% @path = val.vfile.url %>
 	  <div class="row topRow">
 		  <div class="col-md-7">
 		  	<div class="embed-responsive embed-responsive-4by3">
