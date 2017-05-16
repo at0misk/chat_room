@@ -1,7 +1,7 @@
 <h1><%= @category.name %></h1>
 <% x = 0 %>
 	<% @videos.each do |val| %>
-	<% @path = val.vfile.url[19..-1] %>
+	<% @path = val.vfile.url[18..-1] %>
 	<%= @path %>
 	  <div class="row topRow">
 		  <div class="col-md-7">
