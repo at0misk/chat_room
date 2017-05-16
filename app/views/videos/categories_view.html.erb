@@ -1,8 +1,35 @@
+<style type="text/css">
+	.topRow{
+		margin-top: 2%;
+	}
+	.middleRow{
+		height: 200px;
+		background-color: lightyellow;
+		padding: 0% 5%;
+	}
+	.middleText{
+		padding: 5%;
+	}
+	.catHeader{
+		display: inline-block;
+		margin-right: 5%;
+	}
+	.catHeader a{
+		text-decoration: none;
+		color: black;
+	}
+	.catHeader a:hover{
+		opacity: .6;
+	}
+	.catRow{
+		text-align: center;
+	}
+</style>
+
 <h1><%= @category.name %></h1>
 <% x = 0 %>
 	<% @videos.each do |val| %>
 	<% @path = val.vfile.url[18..-1] %>
-	<%= @path %>
 	  <div class="row topRow">
 		  <div class="col-md-7">
 		  	<div class="embed-responsive embed-responsive-4by3">
