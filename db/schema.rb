@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512172347) do
+ActiveRecord::Schema.define(version: 20170516163715) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 20170512172347) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "permod"
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "file_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.string   "vfile"
+    t.index ["category_id"], name: "index_videos_on_category_id"
   end
 
 end

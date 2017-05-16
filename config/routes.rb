@@ -19,5 +19,9 @@ Rails.application.routes.draw do
  	post '/categories/destroy' => 'categories#destroy'
  	get '/users/edit' => 'users#edit'
  	patch '/users/edit' => 'users#update'
+ 	get '/videos' => 'videos#index'
+ 	get '/videos/new' => 'videos#new'
+ 	post '/videos' => 'videos#create'
+ 	get '/videos/:id' => 'videos#categories_view'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

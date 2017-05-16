@@ -1,0 +1,55 @@
+<style type="text/css">
+	.header{
+		text-align: center;
+	}
+</style>
+<div class="row">
+	<div class="col-md-6"">
+	</div>
+	<div class="col-md-6">
+		<h1 class="header">Upload a Video</h1>
+	<form class="form-horizontal" method="post" action="/videos" id="editForm" enctype="multipart/form-data">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<div class="form-group">
+	    <label for="user[first]" class="col-sm-3 control-label">
+	        Title:</label>
+	    <div class="col-sm-6">
+	        <input name="name" type="text" class="form-control" id="name" />
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label for="user[last]" class="col-sm-3 control-label">
+	        Description</label>
+	    <div class="col-sm-6">
+	    	<textarea name="description" class="form-control" id="description">
+	    	</textarea>
+	    </div>
+	</div>
+  <div class="form-group">
+    <label for="category" class="col-sm-3 control-label">Category</label>
+    	<div class="col-sm-6">
+		    <select name="category" class="form-control" id="category">
+		    	<% @categories.each do |val |%>
+		    		<option value="<%= val.id %>"><%= val.name %></option>
+		    	<% end %>
+		    </select>
+	    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile" class="col-sm-3 control-label">File</label>
+    <div class="col-sm-6">
+    	<input name="file" type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
+    </div>
+<!--     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
+  </div>
+	<div class="row">
+	    <div class="col-sm-12 modalButtons header">
+	        <button type="submit" class="btn btn-primary btn-sm">
+	            Upload</button>
+	    </div>
+	    <div class="col-sm-3">
+	    </div>
+	</div>
+</form>
+	</div>
+</div>
