@@ -64,7 +64,7 @@
 					<% @thumb_path = "/public/videos/thumb_" %>
 					<% @thumb_path += val.vfile.url[15..-5] %>
 					<% @thumb_path += ".png" %>
-					    <li movieurl="<%= val.vfile.url %>"><img src="<%= @thumb_path %>"></li>
+					    <li movieurl="<%= val.vfile.url %>" data-toggle="tooltip" data-placement="right" title="<%= val.name %>"><img src="<%= @thumb_path %>"></li>
 				    <% end %>
 				</ul>
 			  	<!-- <h1><%#= val.name %></h1> -->
