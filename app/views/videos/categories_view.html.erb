@@ -24,6 +24,10 @@
 	.catRow{
 		text-align: center;
 	}
+	#playlist li{
+	    cursor:pointer;
+	    padding:8px;
+	}
 </style>
 
 <h1><%= @category.name %></h1>
@@ -34,9 +38,9 @@
 		  <div class="col-md-7">
 		  	<div class="embed-responsive embed-responsive-4by3">
 		  		<% if x == 0 %>
-				  <video id="my-video" autoplay class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
+				  <video id="videoarea" autoplay class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
 				<% else %>
-					<video id="my-video" class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
+					<video id="videoarea" class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
 				<% end %>
 				    <source src="<%= @path %>" type='video/mp4'>
 				    <source src="<%= @path %>" type='video/webm'>
@@ -49,12 +53,32 @@
 		  </div>
 		  <div class="col-md-5">
 			  <div class="row middleRow">
-			  	<h1><%= val.name %></h1>
+				<ul id="playlist">
+					<% @videos.each do |val| %>
+					    <li movieurl="<%= val.vfile.url %>"><%= val.name %></li>
+				    <% end %>
+				</ul>
+			  	<!-- <h1><%#= val.name %></h1> -->
 			  </div>
-			  <div class="row middleText">
-					<p><%= val.description %></p>
-			  </div>
+			  <!-- <div class="row middleText"> -->
+					<!-- <p><%#= val.description %></p> -->
+			  <!-- </div> -->
 		  </div>
 	  </div>
 	  <% x += 1 %>
 	<% end %>
+<script type="text/javascript">
+	$( document ).on('turbolinks:load', function() {
+	    $("#playlist li").on("click", function() {
+	        $("#videoarea").attr({
+	            "src": $(this).attr("movieurl"),
+	            "poster": "",
+	            "autoplay": "autoplay"
+	        })
+	    })
+	    $("#videoarea").attr({
+	        "src": $("#playlist li").eq(0).attr("movieurl"),
+	        "poster": $("#playlist li").eq(0).attr("moviesposter")
+	    })
+	})
+</script>
