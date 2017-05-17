@@ -27,4 +27,9 @@ class VideosController < ApplicationController
 		@videos = Video.all
 		@categories = Category.all
 	end
+	def destroy
+		@video = Video.find(params['id'])
+		@video.destroy
+		redirect_to :back
+	end
 end

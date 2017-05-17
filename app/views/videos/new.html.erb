@@ -24,10 +24,10 @@
 		<% @thumb_path += ".png" %>
 			<div class="imgDiv">
 				<img src="<%= @thumb_path %>" />
-					<form action="/categories/destroy" method="POST" data-remote="true" class="destroyForm">
+					<form action="/videos/destroy" method="POST" data-remote="true" class="destroyForm">
 						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 						<input type="hidden" name="id" value="<%= val.id %>">
-						<button class="btn btn-xs btn-danger" data-confirm="Destroy Category?">X</button>
+						<button class="btn btn-xs btn-danger" data-confirm="Destroy Video?">X</button>
 					</form>
 			</div>
 	    <% end %>

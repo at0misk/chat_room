@@ -22,6 +22,7 @@ Rails.application.routes.draw do
  	get '/videos' => 'videos#index'
  	get '/videos/new' => 'videos#new'
  	post '/videos' => 'videos#create'
+ 	post '/videos/destroy' = 'videos#destroy'
  	get '/videos/:id' => 'videos#categories_view'
  	get '/blog' => 'blogs#view'
  	get '/resources' => 'sessions#resources'
