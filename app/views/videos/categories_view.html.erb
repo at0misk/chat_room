@@ -57,6 +57,7 @@
 					<% @videos.each do |val| %>
 					<% @thumb_path = "/public/videos/thumb_" %>
 					<% @thumb_path += val.vfile.url[15..-5] %>
+					<% @thumb_path += ".png" %>
 					<%= @thumb_path %>
 					<img src="<%= @thumb_path %>">
 					    <li movieurl="<%= val.vfile.url %>"><%= val.name %></li>
