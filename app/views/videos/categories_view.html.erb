@@ -3,9 +3,9 @@
 		margin-top: 2%;
 	}
 	.middleRow{
-		height: 200px;
+/*		height: 200px;
 		background-color: lightyellow;
-		padding: 0% 5%;
+		padding: 0% 5%;*/
 	}
 	.middleText{
 		padding: 5%;
@@ -27,13 +27,17 @@
 	#playlist li{
 	    cursor:pointer;
 	    padding:8px;
+    	list-style-type: none;
+	}
+	#playlist{
+		padding-left: 0px;
 	}
 </style>
 
 <h1><%= @category.name %></h1>
 	<% @path = @videos[0].vfile.url %>
 	  <div class="row topRow">
-		  <div class="col-md-7">
+		  <div class="col-md-9">
 		  	<div class="embed-responsive embed-responsive-4by3">
 				  <video id="videoarea" autoplay class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
 				    <source src="<%= @path %>" type='video/mp4'>
@@ -45,7 +49,7 @@
 				  </video>
 			  </div>
 		  </div>
-		  <div class="col-md-5">
+		  <div class="col-md-3">
 			  <div class="row middleRow">
 				<ul id="playlist">
 					<% @videos.each do |val| %>
