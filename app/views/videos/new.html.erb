@@ -18,8 +18,11 @@
 		vertical-align: top;
 		float: right;
 	}
+	.topRow{
+		margin-top: 2%;
+	}
 </style>
-<div class="row">
+<div class="row topRow">
 	<div class="col-md-7 videoCont">
 		<% @videos.each do |val| %>
 		<% @thumb_path = "/public/videos/thumb_" %>
