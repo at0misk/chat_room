@@ -51,6 +51,14 @@
 
 <!-- <h1><%#= @category.name %></h1> -->
 	<% @path = @videos[0].vfile.url %>
+	<div class="row textRow">
+		<div class="col-md-8">
+			<h1><%= @videos[0].name %></h1>
+		</div>
+		<div class="col-md-4">
+			<p><%= @videos[0].description %></p>
+		</div>
+		</div>
 	  <div class="row topRow">
 		  <div class="col-md-10">
 		  	<div class="embed-responsive embed-responsive-4by3">
