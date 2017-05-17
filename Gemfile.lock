@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/at0misk/carrierwave-video-thumbnailer.git
+  revision: ceee0139a93e5fce3e7b0fa278ae16939a8a88b5
+  specs:
+    carrierwave-video-thumbnailer (0.1.4)
+      carrierwave
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -170,6 +177,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave (~> 1.0)
+  carrierwave-video-thumbnailer!
   coffee-rails (~> 4.2)
   hirb
   jbuilder (~> 2.5)
