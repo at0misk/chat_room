@@ -87,7 +87,7 @@
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
 	    $("#playlist li").on("click", function() {
-	    	$('.videoInfo').append("a" + $(this).attr("movetitle") + "<small>" + $(this).attr("moviedescription") + "</small>");
+	    	$('.videoInfo').innerHTML = "a" + $(this).attr("movietitle") + "<small>" + $(this).attr("moviedescription") + "</small>";
 	        $("#videoarea").attr({
 	            "src": $(this).attr("movieurl"),
 	            "poster": "",
