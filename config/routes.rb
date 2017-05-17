@@ -23,5 +23,7 @@ Rails.application.routes.draw do
  	get '/videos/new' => 'videos#new'
  	post '/videos' => 'videos#create'
  	get '/videos/:id' => 'videos#categories_view'
+ 	get '/blog' => 'blogs#view'
+ 	get '/resources' => 'sessions#resources'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
