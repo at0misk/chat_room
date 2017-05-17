@@ -48,7 +48,7 @@
 
 	}
 </style>
-<% if @videos %>
+<% if @videos.length != 0 %>
 <!-- <h1><%#= @category.name %></h1> -->
 	<% @path = @videos[0].vfile.url %>
 	<div class="row textRow">
