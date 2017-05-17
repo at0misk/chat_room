@@ -3,7 +3,10 @@
 		margin-top: 2%;
 		display: flex;
 		margin-bottom: 50px;
-		height: 691px;
+		height: 500px;
+	}
+	#videoarea{
+		height: 500px;
 	}
 	.middleRow{
 /*		height: 200px;
@@ -42,7 +45,7 @@
 		overflow-x: auto;
 	}
 	.tooltip{
-		
+
 	}
 </style>
 
@@ -67,7 +70,7 @@
 					<% @thumb_path = "/public/videos/thumb_" %>
 					<% @thumb_path += val.vfile.url[15..-5] %>
 					<% @thumb_path += ".png" %>
-					    <li movieurl="<%= val.vfile.url %>"><a href="#" data-toggle="tooltip" data-placement="right" title="<%= val.name %>"><img src="<%= @thumb_path %>"></a></li>
+					    <li movieurl="<%= val.vfile.url %>"><img src="<%= @thumb_path %>"></li>
 				    <% end %>
 				</ul>
 			  	<!-- <h1><%#= val.name %></h1> -->
@@ -76,10 +79,8 @@
 			  <!-- </div> -->
 		  </div>
 	  </div>
-	  <button data-toggle="tooltip" data-placement="right" title="testing">TEST</button>
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
-		$('[data-toggle="tooltip"]').tooltip()
 	    $("#playlist li").on("click", function() {
 	        $("#videoarea").attr({
 	            "src": $(this).attr("movieurl"),
