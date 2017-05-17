@@ -75,6 +75,7 @@
 	  </div>
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
+		$('[data-toggle="tooltip"]').tooltip()
 	    $("#playlist li").on("click", function() {
 	        $("#videoarea").attr({
 	            "src": $(this).attr("movieurl"),
