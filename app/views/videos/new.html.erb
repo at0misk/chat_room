@@ -50,5 +50,8 @@
 	    </div>
 	</div>
 </form>
+	<% if flash[:errors] %>
+		<p><%= flash[:errors] %></p>
+	<% end %>
 	</div>
 </div>

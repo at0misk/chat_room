@@ -7,15 +7,19 @@ class VideosController < ApplicationController
 		@videos = Video.where(category_id: params['id'])
 	end
 	def create
-		v = Video.new
-		v.vfile = params[:file]
-		v.name = params[:name]
-		v.category_id = params[:category]
-		v.description = params[:description]
-		if v.save!
-
+		if !params[:file] || !params[:name] || !params[:category] || !params[:description]
+			flash[:errors] = "Fill out all fields"
 		else
-			flash[:errors] = "Record saved, but file wasn't uploaded."
+			v = Video.new
+			v.vfile = params[:file]
+			v.name = params[:name]
+			v.category_id = params[:category]
+			v.description = params[:description]
+			if v.save!
+
+			else
+				flash[:errors] = "Record saved, but file wasn't uploaded."
+			end
 		end
 			redirect_to :back
 	end
