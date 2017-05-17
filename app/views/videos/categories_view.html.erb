@@ -31,16 +31,11 @@
 </style>
 
 <h1><%= @category.name %></h1>
-<% x = 0 %>
 	<% @path = @videos[0].vfile.url %>
 	  <div class="row topRow">
 		  <div class="col-md-7">
 		  	<div class="embed-responsive embed-responsive-4by3">
-		  		<% if x == 0 %>
 				  <video id="videoarea" autoplay class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
-				<% else %>
-					<video id="videoarea" class="video-js embed-responsive-item" controls preload="auto" width="640" height="264" data-setup="{}">
-				<% end %>
 				    <source src="<%= @path %>" type='video/mp4'>
 				    <source src="<%= @path %>" type='video/webm'>
 				    <p class="vjs-no-js">
@@ -67,8 +62,6 @@
 			  <!-- </div> -->
 		  </div>
 	  </div>
-	  <% x += 1 %>
-	<% end %>
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
 	    $("#playlist li").on("click", function() {
