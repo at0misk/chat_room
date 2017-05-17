@@ -1,4 +1,6 @@
 class VfileUploader < CarrierWave::Uploader::Base
+  include CarrierWave::Video  # for your video processing
+  include CarrierWave::Video::Thumbnailer
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -29,6 +31,17 @@ class VfileUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  version :thumb do
+    process thumbnail: [{format: 'png', quality: 10, size: 192, strip: true, logger: Rails.logger}]
+    def full_filename for_file
+      png_name for_file, version_name
+    end
+  end
+
+  def png_name for_file, version_name
+    %Q{#{version_name}_#{for_file.chomp(File.extname(for_file))}.png}
+  end
+  
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
