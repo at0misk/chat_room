@@ -6,6 +6,7 @@
 		display: inline-block;
 		padding: 1%;
 		height: 108px;
+		width: 190px;
 	}
 	.videoCont{
 		height: 600px;
@@ -24,7 +25,7 @@
 		<% @thumb_path = "/public/videos/thumb_" %>
 		<% @thumb_path += val.vfile.url[15..-5] %>
 		<% @thumb_path += ".png" %>
-			<div class="imgDiv" style="background-image: src('<%= @thumb_path %>')">
+			<div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
 					<form action="/videos/destroy" method="POST" data-remote="true" class="destroyForm">
 						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 						<input type="hidden" name="id" value="<%= val.id %>">
