@@ -53,7 +53,7 @@
 	<% @path = @videos[0].vfile.url %>
 	<div class="row textRow">
 			<div class="col-md-12">
-				<h1><%= @videos[0].name %> <small><%= @videos[0].description %></small></h1>
+				<h1 class="videoInfo"><%= @videos[0].name %> <small><%= @videos[0].description %></small></h1>
 			</div>
 		</div>
 	  <div class="row topRow">
@@ -75,7 +75,7 @@
 					<% @thumb_path = "/public/videos/thumb_" %>
 					<% @thumb_path += val.vfile.url[15..-5] %>
 					<% @thumb_path += ".png" %>
-					    <li movieurl="<%= val.vfile.url %>"><img src="<%= @thumb_path %>"></li>
+					    <li movieurl="<%= val.vfile.url %>" movietitle="<%= val.name %>" moviedescription="<%= val.description %>"><img src="<%= @thumb_path %>"></li>
 				    <% end %>
 				</ul>
 			  	<!-- <h1><%#= val.name %></h1> -->
@@ -87,6 +87,7 @@
 <script type="text/javascript">
 	$( document ).on('turbolinks:load', function() {
 	    $("#playlist li").on("click", function() {
+	    	$('.videoInfo').innherHTML = $(this).attr("movetitle") + "<small>" + $(this).attr("moviedescription") + "</small>"
 	        $("#videoarea").attr({
 	            "src": $(this).attr("movieurl"),
 	            "poster": "",
