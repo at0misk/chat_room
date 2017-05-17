@@ -55,6 +55,10 @@
 			  <div class="row middleRow">
 				<ul id="playlist">
 					<% @videos.each do |val| %>
+					<% @thumb_path = "/punlic/videos/thumb_" %>
+					<% @thumb_path += val.vfile.url[14..-1] %>
+					<%= @thumb_path %>
+					<img src="<%= @thumb_path %>">
 					    <li movieurl="<%= val.vfile.url %>"><%= val.name %></li>
 				    <% end %>
 				</ul>
