@@ -32,7 +32,7 @@ class VfileUploader < CarrierWave::Uploader::Base
   # end
 
   version :thumb do
-    process thumbnail: [{format: 'png', quality: 10, size: 192, strip: true, logger: Rails.logger}]
+    process thumbnail: [{format: 'png', quality: 10, size: 192, strip: false, logger: Rails.logger}]
     def full_filename(for_file=file)
       super.chomp('mp4') + 'png'
     end
@@ -41,7 +41,7 @@ class VfileUploader < CarrierWave::Uploader::Base
   # def png_name for_file, version_name
   #   %Q{#{version_name}_#{for_file.chomp(File.extname(for_file))}.png}
   # end
-  
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
