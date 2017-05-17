@@ -1,6 +1,7 @@
 <style type="text/css">
 	.topRow{
 		margin-top: 2%;
+		display: flex;
 	}
 	.middleRow{
 /*		height: 200px;
@@ -26,7 +27,7 @@
 	}
 	#playlist li{
 	    cursor:pointer;
-	    padding:8px;
+    	padding-bottom: 8px;
     	list-style-type: none;
 	}
 	#playlist{
@@ -50,7 +51,6 @@
 			  </div>
 		  </div>
 		  <div class="col-md-3">
-			  <div class="row middleRow">
 				<ul id="playlist">
 					<% @videos.each do |val| %>
 					<% @thumb_path = "/public/videos/thumb_" %>
@@ -60,7 +60,6 @@
 				    <% end %>
 				</ul>
 			  	<!-- <h1><%#= val.name %></h1> -->
-			  </div>
 			  <!-- <div class="row middleText"> -->
 					<!-- <p><%#= val.description %></p> -->
 			  <!-- </div> -->
