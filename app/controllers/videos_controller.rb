@@ -24,6 +24,7 @@ class VideosController < ApplicationController
 			redirect_to :back
 	end
 	def new
+		@videos = Video.all
 		@categories = Category.all
 	end
 end
