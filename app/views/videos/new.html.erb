@@ -6,15 +6,29 @@
 		display: inline-block;
 		padding: 1%;
 	}
+	.videoCont{
+		height: 600px;
+		overflow: auto;
+	}
+	.destroyForm{
+		display: inline-block;
+		vertical-align: top;
+		float: right;
+	}
 </style>
 <div class="row">
-	<div class="col-md-7"">
+	<div class="col-md-7 videoCont">
 		<% @videos.each do |val| %>
 		<% @thumb_path = "/public/videos/thumb_" %>
 		<% @thumb_path += val.vfile.url[15..-5] %>
 		<% @thumb_path += ".png" %>
 			<div class="imgDiv">
 				<img src="<%= @thumb_path %>" />
+					<form action="/categories/destroy" method="POST" data-remote="true" class="destroyForm">
+						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+						<input type="hidden" name="id" value="<%= val.id %>">
+						<button class="btn btn-xs btn-danger" data-confirm="Destroy Category?">X</button>
+					</form>
 			</div>
 	    <% end %>
 	</div>
