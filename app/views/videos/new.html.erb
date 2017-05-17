@@ -2,6 +2,9 @@
 	.header{
 		text-align: center;
 	}
+	.imgDiv{
+		display: inline-block;
+	}
 </style>
 <div class="row">
 	<div class="col-md-6"">
@@ -10,7 +13,7 @@
 		<% @thumb_path += val.vfile.url[15..-5] %>
 		<% @thumb_path += ".png" %>
 			<div class="imgDiv">
-				<img src="<%= @thumb_path %>">
+				<img src="<%= @thumb_path %>" />
 			</div>
 	    <% end %>
 	</div>
