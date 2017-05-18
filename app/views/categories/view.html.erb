@@ -53,13 +53,6 @@
 		<a href="/videos/<%= @category.id %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
 			<h3 class="videoText">Videos</h3>
 		</div></a>
-		<a href="#"><div class="box">
-			<h3 class="boxtext">Specials</h3>
-		</div></a>
-	</div>
-	<div class="col-sm-6 right">
-	</div>
-		<div class="row">
 			<% @thumb_path = "/public/videos/thumb_" %>
 			<% @thumb_path += @video.vfile.url[15..-5] %>
 			<% @thumb_path += ".png" %>
@@ -69,7 +62,12 @@
 			<a href="#"><div class="box">
 				<h3 class="boxtext">Specials</h3>
 			</div></a>
-		</div>
+		<a href="#"><div class="box">
+			<h3 class="boxtext">Specials</h3>
+		</div></a>
+	</div>
+	<div class="col-sm-6 right">
+	</div>
 </div>
 <% else %>
 <% end %>
