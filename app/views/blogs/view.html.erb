@@ -14,7 +14,7 @@
 </div>
 <% @blogs.each do |val| %>
 		<div class="col-sm-6">
-			<h3 class="header"><%= val.title %></h3>
+			<h3 class="header"><%= val.title %><small><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></small></h3>
 			<% @paragraphs = val.content.scan(/[\r\n]+/).map(&:first) %>
 			<p><%= simple_format(val.content) %></p>
 		</div>
