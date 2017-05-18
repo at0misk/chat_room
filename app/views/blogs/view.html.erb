@@ -2,19 +2,28 @@
 	.header{
 		text-align: center;
 	}
+	.headerTitle{
+		display: inline;
+	}
 	.blog{
 		float: right;
 	}
-	.header small{
+	.tiny{
 		float: right;
+	}
+	.blogDiv{
+		margin-bottom: 2%;
+	}
+	.newBlog{
+		margin-bottom: 2%;
 	}
 </style>
 <div class="row">
-	<h1 class="header"><% if @user.permod %><small><a href="/blog/new">New Blog</a></small><% end %></h1>
+	<h1 class="header"><% if @user.permod %><% end %></h1><span class="tiny newBlog"><a href="/blog/new">New Blog</a></span>
 </div>
 <% @blogs.each do |val| %>
-		<div class="col-sm-6">
-			<h3 class="header"><%= val.title %><small><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></small></h3>
+		<div class="col-sm-6 blogDiv">
+			<h3 class="headerTitle"><%= val.title %></h3><span class="tiny"><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></span>
 			<% @paragraphs = val.content.scan(/[\r\n]+/).map(&:first) %>
 			<p><%= simple_format(val.content) %></p>
 		</div>
