@@ -21,6 +21,10 @@ class CategoriesController < ApplicationController
 	end
 	def view
 		@category = Category.find(params['id'])
+		@videos = Video.where(category_id: @category.id)
+		if @videos
+			@video = @videos[0]
+		end
 	end
 	def destroy
 		@category = Category.find(params['id'])

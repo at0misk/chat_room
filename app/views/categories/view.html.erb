@@ -12,3 +12,7 @@
 <div class="row">
 	<h2 class="header"><%= @category.name %></h2>
 </div>
+	<% @thumb_path = "/public/videos/thumb_" %>
+	<% @thumb_path += @video.vfile.url[15..-5] %>
+	<% @thumb_path += ".png" %>
+	<img src="<%= @thumb_path %>">
