@@ -2,5 +2,20 @@
 	.header{
 		text-align: center;
 	}
+	.blog{
+		float: right;
+	}
+	.header small{
+		float: right;
+	}
 </style>
-<h1 class="header">Blog</h1>
+<div class="row">
+	<h1 class="header"><% if @user.permod %><small><a href="/blog/new">New Blog</a></small><% end %></h1>
+</div>
+<% @blogs.each do |val| %>
+		<div class="col-sm-6">
+			<h3 class="header"><%= val.title %></h3>
+			<% @paragraphs = val.content.scan(/[\r\n]+/).map(&:first) %>
+			<p><%= simple_format(val.content) %></p>
+		</div>
+<% end %>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
  	post '/videos/destroy' =>'videos#destroy'
  	get '/videos/:id' => 'videos#categories_view'
  	get '/blog' => 'blogs#view'
+ 	get '/blog/new' => 'blogs#new'
+ 	post '/blogs' => 'blogs#create'
  	get '/resources' => 'sessions#resources'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
