@@ -15,4 +15,6 @@
 	<% @thumb_path = "/public/videos/thumb_" %>
 	<% @thumb_path += @video.vfile.url[15..-5] %>
 	<% @thumb_path += ".png" %>
-	<img src="<%= @thumb_path %>">
+	<div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
+		<h5 class="videoText">Videos</h5>
+	</div>
