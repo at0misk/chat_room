@@ -8,7 +8,7 @@ class VideosController < ApplicationController
 		if session[:index]
 			@path = @videos[session[:index]].vfile.url
 		else
-			@path = @videos[0].vfile.url
+			# @path = @videos[0].vfile.url
 		end
 	end
 	def create
