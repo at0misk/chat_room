@@ -174,7 +174,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);
   </div>
   <div class="row catRow">
   	<% @categories.each do |val| %>
-  		<h3 class="catHeader"><a href="/videos/<%= val.id %>"><%= val.name %></a></h3>
+  		<a href="/videos/<%= val.id %>"><h3 class="catHeader"><%= val.name %></h3></a>
   	<% end %>
   </div>
 <script type="text/javascript">
