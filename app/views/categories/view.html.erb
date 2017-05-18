@@ -15,6 +15,11 @@
 		margin-right: 2%;
 		margin-bottom: 2%;
 	}
+	.videoText{
+		color: white;
+	    text-align: center;
+	    margin-top: 20%;
+	}
 </style>
 <div class="row">
 	<h2 class="header"><%= @category.name %></h2>
@@ -23,5 +28,5 @@
 	<% @thumb_path += @video.vfile.url[15..-5] %>
 	<% @thumb_path += ".png" %>
 	<div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
-		<h5 class="videoText">Videos</h5>
+		<h3 class="videoText">Videos</h3>
 	</div>
