@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
 		@videos = Video.where(category_id: @category.id)
 		if @videos
 			@video = @videos[0]
+			@rand = rand(0..@videos.length-1)
+			@rand_video = @videos[@rand]
 		end
 	end
 	def destroy
