@@ -7,6 +7,8 @@ class VideosController < ApplicationController
 		@videos = Video.where(category_id: params['id'])
 		if session[:index]
 			@path = @videos[session[:index]].vfile.url
+			puts @path
+			fail
 			session[:index] = nil
 			session[:cat_id] = nil
 		else
@@ -42,7 +44,6 @@ class VideosController < ApplicationController
 	def admin_view
 		session[:index] = params['index'].to_i
 		puts session[:index]
-		fail
 		session[:cat_id] = params['id'].to_i
 		redirect_to "/videos/#{session[:cat_id]}"
 	end
