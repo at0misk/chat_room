@@ -20,6 +20,11 @@
 	    text-align: center;
 	    margin-top: 20%;
 	}
+	.box{
+		display: inline-block;
+		height: 98px;
+		width: 190px;
+	}
 	.boxtext{
 		text-align: center;
 	    margin-top: 20%;
@@ -38,7 +43,7 @@
 		<a href="/videos/<%= @category.id %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
 			<h3 class="videoText">Videos</h3>
 		</div></a>
-		<div class="imgDiv">
+		<div class="box">
 			<a href="#"><h3 class="boxtext">Specials</h3></a>
 		</div>
 	</div>
