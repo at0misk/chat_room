@@ -7,8 +7,12 @@ class VideosController < ApplicationController
 		@videos = Video.where(category_id: params['id'])
 		if session[:index]
 			@path = @videos[session[:index]].vfile.url
+			@name = @videos[session[:index]].name
+			@description = @videos[session[:index]].description
 		else
 			@path = @videos[0].vfile.url
+			@name = @videos[0].name
+			@description = @videos[0].description
 		end
 		session[:index] = nil if session[:index]
 		session[:cat_id] = nil if session[:cat_id]
