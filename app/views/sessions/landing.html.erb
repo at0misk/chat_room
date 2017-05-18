@@ -45,9 +45,9 @@
 	<% x = 0 %>
 	<div class="row topicRow">
 	<% @categories.each do |val| %>
-			<div class="col-sm-3 topicBox">
-				<h3 class="topicHeader"><a href ="/categories/<%= val.id %>"><%= val.name %></a></h3>
-			</div>
+			<a href ="/categories/<%= val.id %>"><div class="col-sm-3 topicBox">
+				<h3 class="topicHeader"><%= val.name %></h3>
+			</div></a>
 			<% if x == 3 %>
 				</div>
 				<div class="row topicRow">
