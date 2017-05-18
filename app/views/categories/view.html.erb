@@ -33,6 +33,10 @@
 	.boxtext{
 		color: black
 	}
+	.right{
+		height: 392px;
+		border: 1px solid grey;
+	}
 </style>
 <div class="row">
 	<h2 class="header"><%= @category.name %></h2>
@@ -50,7 +54,7 @@
 			<h3 class="boxtext">Specials</h3>
 		</div></a>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6 right">
 	</div>
 </div>
 <% else %>
