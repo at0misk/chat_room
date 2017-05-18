@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 	def view
 		@category = Category.find(params['id'])
 		@videos = Video.where(category_id: @category.id)
-		if @videos
+		if @videos.length > 0
 			@video = @videos[0]
 			@rand = rand(0..@videos.length-1)
 			@rand_video = @videos[@rand]
