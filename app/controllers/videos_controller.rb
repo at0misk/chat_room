@@ -7,13 +7,11 @@ class VideosController < ApplicationController
 		@videos = Video.where(category_id: params['id'])
 		if session[:index]
 			@path = @videos[session[:index]].vfile.url
-			session[:path] = @path
-			fail
-			session[:index] = nil
-			session[:cat_id] = nil
 		else
 			@path = @videos[0].vfile.url
 		end
+		session[:index] = nil if session[:index]
+		session[:cat_id] = nil if session[:cat_id]
 	end
 	def create
 		if !params[:file] || !params[:name] || !params[:category] || !params[:description]
