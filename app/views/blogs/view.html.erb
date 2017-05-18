@@ -19,9 +19,11 @@
 		padding-right: 30px;
 	}
 </style>
+<% if @user.permod %>
 <div class="row">
-	<h1 class="header"><% if @user.permod %><% end %></h1><span class="tiny newBlog"><a href="/blog/new">New Blog</a></span>
+	<h1 class="header"></h1><span class="tiny newBlog"><a href="/blog/new">New Blog</a></span>
 </div>
+<% end %>
 <% @blogs.each do |val| %>
 		<div class="col-sm-6 blogDiv">
 			<h3 class="headerTitle"><%= val.title %></h3><span class="tiny"><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></span>
