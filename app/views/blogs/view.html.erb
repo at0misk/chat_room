@@ -18,6 +18,9 @@
 		margin-bottom: 2%;
 		padding-right: 30px;
 	}
+	.paraDiv{
+		padding: 5%;
+	}
 </style>
 <% if @user.permod %>
 <div class="row">
@@ -28,6 +31,8 @@
 		<div class="col-sm-6 blogDiv">
 			<h3 class="headerTitle"><%= val.title %></h3><span class="tiny"><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></span>
 			<% @paragraphs = val.content.scan(/[\r\n]+/).map(&:first) %>
-			<p><%= simple_format(val.content) %></p>
+			<div class="paraDiv">
+				<p><%= simple_format(val.content) %></p>
+			</div>
 		</div>
 <% end %>
