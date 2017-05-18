@@ -20,13 +20,29 @@
 	    text-align: center;
 	    margin-top: 20%;
 	}
+	.boxtext{
+		text-align: center;
+	    margin-top: 20%;
+	}
 </style>
 <div class="row">
 	<h2 class="header"><%= @category.name %></h2>
 </div>
-	<% @thumb_path = "/public/videos/thumb_" %>
-	<% @thumb_path += @video.vfile.url[15..-5] %>
-	<% @thumb_path += ".png" %>
-	<a href="/videos/<%= @category.id %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
-		<h3 class="videoText">Videos</h3>
-	</div></a>
+<% if @video %>
+<div class="row">
+	<div class="col-sm-6">
+		<% @thumb_path = "/public/videos/thumb_" %>
+		<% @thumb_path += @video.vfile.url[15..-5] %>
+		<% @thumb_path += ".png" %>
+		<a href="/videos/<%= @category.id %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
+			<h3 class="videoText">Videos</h3>
+		</div></a>
+		<div class="imgDiv">
+			<a href="#"><h3 class="boxtext">Specials</h3></a>
+		</div>
+	</div>
+	<div class="col-sm-6">
+	</div>
+</div>
+<% else %>
+<% end %>
