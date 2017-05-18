@@ -40,6 +40,7 @@ class VideosController < ApplicationController
 		redirect_to :back
 	end
 	def admin_view
+		fail
 		session[:index] = params['x']
 		session[:cat_id] = params['id']
 		redirect_to "/videos/#{session[:cat_id]}"
