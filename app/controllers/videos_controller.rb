@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 		@category = Category.find(params['id'])
 		@videos = Video.where(category_id: params['id'])
 		if session[:index]
+			fail
 			@path = @videos[session[:index]].vfile.url
 			session[:index] = nil
 			session[:cat_id] = nil
