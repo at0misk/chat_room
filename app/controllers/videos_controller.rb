@@ -8,8 +8,10 @@ class VideosController < ApplicationController
 		if session[:index]
 			@path = @videos[session[:index]].vfile.url
 		else
-			# @path = @videos[0].vfile.url
+			@path = @videos[0].vfile.url
 		end
+		session[:index] = nil if session[:index]
+		session[:cat_id] = nil if session[:cat_id]
 	end
 	def create
 		if !params[:file] || !params[:name] || !params[:category] || !params[:description]
