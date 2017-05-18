@@ -25,17 +25,19 @@
 </style>
 <div class="row topRow">
 	<div class="col-md-7 videoCont">
+	<% x = 0 %>
 		<% @videos.each do |val| %>
 		<% @thumb_path = "/public/videos/thumb_" %>
 		<% @thumb_path += val.vfile.url[15..-5] %>
 		<% @thumb_path += ".png" %>
-			<a href="/videos/<%= val.category.id %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
+			<a href="/videos/admin/<%= val.category.id %>/<%= x %>"><div class="imgDiv" style="background-image: url('<%= @thumb_path %>')">
 					<form action="/videos/destroy" method="POST" data-remote="true" class="destroyForm">
 						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 						<input type="hidden" name="id" value="<%= val.id %>">
 						<button class="btn btn-xs btn-danger" data-confirm="Destroy Video?">X</button>
 					</form>
 			</div></a>
+		<% x += 1 %>
 	    <% end %>
 	</div>
 	<div class="col-md-5">

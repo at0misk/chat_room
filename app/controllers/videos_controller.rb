@@ -5,6 +5,13 @@ class VideosController < ApplicationController
 	def categories_view
 		@category = Category.find(params['id'])
 		@videos = Video.where(category_id: params['id'])
+		if session[:index]
+			@path = @videos[session[:index]].vfile.url
+			session[:index] = nil
+			session[:cat_id] = nil
+		else
+			@path = @videos[0].vfile.url
+		end
 	end
 	def create
 		if !params[:file] || !params[:name] || !params[:category] || !params[:description]
@@ -31,5 +38,10 @@ class VideosController < ApplicationController
 		@video = Video.find(params['id'])
 		@video.destroy
 		redirect_to :back
+	end
+	def admin_view
+		session[:index] = params['x']
+		session[:cat_id] = params['id']
+		redirect_to "/videos/#{session[:cat_id]}"
 	end
 end
