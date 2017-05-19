@@ -22,12 +22,15 @@
 /*		padding: 5%;*/
 		text-align: justify;
 	}
+	.topRow{
+		margin-top: 2%;
+	}
 </style>
+<div class="row topRow">
 <% if @user.permod %>
-<div class="row">
 	<h1 class="header"></h1><span class="tiny newBlog"><a href="/blog/new">New Blog Post</a></span>
-</div>
 <% end %>
+</div>
 <% @blogs.each do |val| %>
 		<div class="col-sm-6 blogDiv">
 			<h3 class="headerTitle"><%= val.title %></h3><span class="tiny"><%= val.created_at.strftime("%B #{val.created_at.day.ordinalize}, %Y") %></span>
