@@ -32,5 +32,11 @@ Rails.application.routes.draw do
  	get '/blogs/edit/:id' => 'blogs#edit'
  	patch '/blogs/edit/:id' => 'blogs#update'
  	get '/resources' => 'sessions#resources'
+ 	get '/specials' => 'specials#index'
+ 	get '/specials/new' => 'specials#new'
+ 	post '/specials' => 'specials#create'
+ 	post '/specials/destroy' => 'specials#destroy'
+ 	get '/specials/edit/:id' => 'specials#edit'
+ 	patch '/specials/edit/:id' => 'specials#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

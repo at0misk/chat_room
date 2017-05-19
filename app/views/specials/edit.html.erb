@@ -1,0 +1,106 @@
+<style type="text/css">
+	.header{
+		text-align: center;
+		margin-top: 0px;
+	}
+	.imgDiv{
+		display: inline-block;
+		height: 98px;
+		width: 190px;
+		margin-right: 2%;
+		margin-bottom: 2%;
+	    -moz-transition: all 0.3s;
+	    -webkit-transition: all 0.3s;
+	    transition: all 0.3s;
+	}
+	.videoCont{
+		height: 600px;
+		overflow: auto;
+	}
+	.destroyForm{
+		display: inline-block;
+		vertical-align: top;
+		float: right;
+	}
+	.topRow{
+		margin-top: 2%;
+	}
+	.imgDiv:hover{
+		opacity: 0.8;
+	}
+	.specialBox{
+		border: 1px solid grey;
+	    width: 30%;
+	    text-align: center;
+	    display: inline-block;
+		height: 150px;
+    	padding: 2%;
+	}
+	.buttonRow{
+		text-align: initial;
+	}
+	.buttonRow button{
+		display: inline-block;
+	}
+	.buttonRow form{
+		display: inline-block;
+	}
+	.titleHeader{
+		margin-top: 0px;
+	}
+	.cat{
+		margin: 0px;
+		text-align: right;
+		font-size: 0.8em;
+	}
+</style>
+<div class="row topRow">
+	<div class="col-md-7 videoCont">
+	</div>
+	<div class="col-md-5">
+		<h1 class="header">Edit Special</h1>
+	<form class="form-horizontal" method="post" action="/specials/edit/<%= @special.id %>" id="editForm" enctype="multipart/form-data">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input name="_method" value="PATCH" type="hidden">
+	<div class="form-group">
+	    <label for="special[title]" class="col-sm-3 control-label">
+	        Title:</label>
+	    <div class="col-sm-6">
+	        <input name="special[title]" type="text" class="form-control" id="name" value="<%= @special.title %>"/>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label for="special[description]" class="col-sm-3 control-label">
+	        Description</label>
+	    <div class="col-sm-6">
+	    	<textarea name="special[description]" class="form-control" id="description"><%= @special.description %></textarea>
+	    </div>
+	</div>
+  <div class="form-group">
+    <label for="special[category]" class="col-sm-3 control-label">Category</label>
+    	<div class="col-sm-6">
+		    <select name="special[category_id]" class="form-control" id="category">
+		    	<% @categories.each do |val |%>
+		    		<% if val.name == @special.category.name %>
+		    			<option value="<%= val.id %>" selected><%= val.name %></option>
+		    		<% else %>
+		    			<option value="<%= val.id %>"><%= val.name %></option>
+		    		<% end %>
+		    	<% end %>
+		    </select>
+	    </div>
+  </div>
+	<div class="row">
+	    <div class="col-sm-12 modalButtons header">
+	        <button type="submit" class="btn btn-primary btn-sm">
+	            Update</button>
+	    </div>
+	    <div class="col-sm-3">
+	    </div>
+	</div>
+</form>
+	<% if flash[:errors] %>
+		<p><%= flash[:errors] %></p>
+	<% end %>
+	</div>
+</div>
