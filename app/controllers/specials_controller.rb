@@ -35,4 +35,7 @@ class SpecialsController < ApplicationController
 		@special.destroy
 		redirect_to :back
   	end
+  	def by_category
+  		@specials = Special.where(category_id: params['id'])
+  	end
 end
