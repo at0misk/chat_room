@@ -55,6 +55,12 @@
 		text-align: right;
 		font-size: 0.8em;
 	}
+	a{
+		color: black;
+	}
+	a:hover{
+		text-decoration: none;
+	}
 </style>
 <div class="row topRow">
 	<div class="col-md-12 videoCont">
@@ -62,11 +68,11 @@
 		<h3>No Specials Found</h3>
 	<% else %>
 			<% @specials.each do |val| %>
-				<div class="specialBox">
+				<a href="/specials/<%= val.id %>"><div class="specialBox">
 					<p class="cat"><%= val.category.name %></p>
 					<h3 class="titleHeader"><%= val.title %></h3>
 					<p><%= val.description %></p>
-				</div>
+				</div></a>
 		    <% end %>
 		</div>
 	<% end %>
