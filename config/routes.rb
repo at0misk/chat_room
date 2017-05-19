@@ -39,5 +39,6 @@ Rails.application.routes.draw do
  	get '/specials/edit/:id' => 'specials#edit'
  	patch '/specials/edit/:id' => 'specials#update'
  	get '/specials/by_category/:id' => 'specials#by_category'
+ 	get '/specials/:id' => 'specials#view'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
