@@ -16,7 +16,6 @@ class VideosController < ApplicationController
 				@description = @videos[0].description
 			end
 		end
-		session[:vids] = @videos
 		session[:index] = nil if session[:index]
 		session[:cat_id] = nil if session[:cat_id]
 	end
