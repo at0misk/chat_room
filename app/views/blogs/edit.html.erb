@@ -1,0 +1,44 @@
+<style type="text/css">
+	.header{
+		text-align: center;
+	}
+	.formButtons{
+		text-align: center;
+	}
+	#content{
+		height: 500px;
+	}
+</style>
+<div class="row">
+<h1 class="header">Edit Blog Post</h1>
+</div>
+<div class="row">
+	<div class="col-md-12">
+			<form class="form-horizontal" action="/blogs/edit/<%= @blog.id %>" method="POST">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input name="_method" value="PATCH" type="hidden">
+				<input name="blog[user_id]" value="<%= @user.id %>" type="hidden">
+				<div class="form-group">
+				    <label for="title" class="col-sm-3 control-label">
+				        Title:</label>
+				    <div class="col-sm-6">
+				        <input type="text" name="blog[title]" class="form-control" id="title" value="<%= @blog.title %>"/>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="password" class="col-sm-3 control-label">
+				        Post:</label>
+				    <div class="col-sm-6">
+				    	<textarea name="blog[content]" class="form-control" id="content"><%= @blog.content %></textarea>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="col-sm-12 formButtons">
+				        <button type="submit" class="btn btn-primary btn-sm">
+				            Post</button>
+				        <!-- <a href="javascript:;">Forgot your password?</a> -->
+				    </div>
+				</div>
+			</form>
+	</div>
+</div>

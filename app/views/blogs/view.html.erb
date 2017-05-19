@@ -25,6 +25,15 @@
 	.topRow{
 		margin-top: 2%;
 	}
+	.buttonRow{
+		text-align: center;
+	}
+	.buttonRow button{
+		display: inline-block;
+	}
+	.buttonRow form{
+		display: inline-block;
+	}
 </style>
 <div class="row topRow">
 <% if @user.permod %>
@@ -37,6 +46,16 @@
 			<% @paragraphs = val.content.scan(/[\r\n]+/).map(&:first) %>
 			<div class="paraDiv">
 				<p><%= simple_format(val.content) %></p>
+				<% if @user.permod %>
+					<div class="row buttonRow">
+						<a href="/blogs/edit/<%= val.id %>"><button class="btn btn-xs btn-primary">Edit Post</button></a>
+						<form action="/blogs/destroy" method="POST" data-remote="true" class="destroyForm">
+							<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+							<input type="hidden" name="id" value="<%= val.id %>">
+							<button class="btn btn-xs btn-danger" data-confirm="Destroy Post?">Delete Post</button>
+						</form>
+					</div>
+				<% end %>
 			</div>
 		</div>
 <% end %>

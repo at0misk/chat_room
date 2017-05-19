@@ -28,6 +28,9 @@ Rails.application.routes.draw do
  	get '/blog' => 'blogs#view'
  	get '/blog/new' => 'blogs#new'
  	post '/blogs' => 'blogs#create'
+ 	post '/blogs/destroy' => 'blogs#destroy'
+ 	get '/blogs/edit/:id' => 'blogs#edit'
+ 	patch '/blogs/edit/:id' => 'blogs#update'
  	get '/resources' => 'sessions#resources'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
