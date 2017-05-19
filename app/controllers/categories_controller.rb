@@ -27,6 +27,11 @@ class CategoriesController < ApplicationController
 			@rand = rand(0..@videos.length-1)
 			@rand_video = @videos[@rand]
 		end
+		@specials = Special.where(category_id: @category.id)
+		if @specials.length > 0
+			@rand_index = rand(0..@specials.length-1)
+			@featured = @specials[@rand_index]
+		end
 	end
 	def destroy
 		@category = Category.find(params['id'])
