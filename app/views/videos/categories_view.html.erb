@@ -69,9 +69,10 @@
 		widows: 187px;
 	}
 </style>
-<% if @videos.empty? %>
+<% if @videos.length == 0 %>
 empty
 <% else %>
+<%= @videos.length %>
 <!-- <h1><%#= @category.name %></h1> -->
 	<div class="row textRow">
 			<div class="col-md-12">
