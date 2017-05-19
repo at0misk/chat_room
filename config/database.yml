@@ -10,6 +10,7 @@ default: &default
   database: chat_room_development
   pool: 5
   timeout: 5000
+  username: ubuntu
 
 development:
   adapter: postgresql
@@ -17,6 +18,7 @@ development:
   database: chat_room_development
   pool: 5
   timeout: 5000
+  username: ubuntu
 
 test:
   adapter: postgresql
