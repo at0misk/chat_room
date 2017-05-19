@@ -5,7 +5,7 @@ class VideosController < ApplicationController
 	def categories_view
 		@category = Category.find(params['id'])
 		@videos = Video.where(category_id: params['id'])
-		if @videos
+		if @videos.length > 0
 			if session[:index]
 				@path = @videos[session[:index]].vfile.url
 				@name = @videos[session[:index]].name
