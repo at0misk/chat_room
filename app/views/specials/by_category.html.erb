@@ -66,6 +66,9 @@
 		color: black;
 	}
 </style>
+<div class="row headerRow">
+	<h2 class="header"><%= @category.name %> Specials</h2>
+</div>
 <div class="row topRow">
 	<div class="col-md-12 videoCont">
 	<% if @specials.length == 0 %>
@@ -73,7 +76,6 @@
 	<% else %>
 			<% @specials.each do |val| %>
 				<a href="/specials/<%= val.id %>"><div class="specialBox">
-					<p class="cat"><%= val.category.name %></p>
 					<h3 class="titleHeader"><%= val.title %></h3>
 					<p><%= val.description %></p>
 				</div></a>

@@ -37,6 +37,7 @@ class SpecialsController < ApplicationController
   	end
   	def by_category
   		@specials = Special.where(category_id: params['id'])
+  		@category = Category.find(params['id'])
   	end
   	def view
   		@special = Special.find(params['id'])
